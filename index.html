@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BuddyVerse Privacy Policy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&display=swap">
+<style>
+  :root {
+    --ground: #faf9f6;
+    --surface: #ffffff;
+    --ink: #1c1e2a;
+    --muted: #6b6f82;
+    --faint: #9295a6;
+    --accent: #5b52e0;
+    --accent-ink: #ffffff;
+    --border: #e5e3dc;
+    --rule: #d8d5cb;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #14161f;
+      --surface: #1a1c28;
+      --ink: #edeef5;
+      --muted: #9a9db0;
+      --faint: #6b6f82;
+      --accent: #8b84ff;
+      --accent-ink: #14161f;
+      --border: #2a2d3d;
+      --rule: #33364a;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { background: var(--ground); }
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    margin: 0;
+    font-family: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2 {
+    font-family: "Fraunces", Georgia, "Times New Roman", serif;
+    font-weight: 500;
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+
+  .page {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 56px 24px 96px;
+    display: grid;
+    grid-template-columns: 220px minmax(0, 700px);
+    gap: 64px;
+    justify-content: center;
+  }
+  @media (max-width: 880px) {
+    .page { grid-template-columns: 1fr; gap: 32px; padding-top: 40px; }
+    nav.toc { display: none; }
+  }
+
+  header.masthead {
+    grid-column: 1 / -1;
+    max-width: 700px;
+    margin: 0 auto 8px;
+    width: 100%;
+  }
+  .eyebrow {
+    font-family: "Public Sans", sans-serif;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 10px;
+  }
+  h1.title {
+    font-size: clamp(32px, 5vw, 44px);
+    margin: 0 0 14px;
+    line-height: 1.08;
+  }
+  .meta {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    color: var(--muted);
+    font-size: 14px;
+    font-variant-numeric: tabular-nums;
+    margin: 0 0 28px;
+  }
+  .meta strong { color: var(--ink); font-weight: 600; }
+  hr.masthead-rule {
+    border: none;
+    height: 2px;
+    background: var(--accent);
+    width: 56px;
+    margin: 0;
+  }
+
+  nav.toc {
+    position: sticky;
+    top: 56px;
+    align-self: start;
+    font-size: 13.5px;
+  }
+  nav.toc .toc-label {
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    font-size: 11.5px;
+    color: var(--faint);
+    margin: 0 0 14px;
+  }
+  nav.toc ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: toc;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  nav.toc li { counter-increment: toc; }
+  nav.toc a {
+    display: flex;
+    gap: 10px;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 7px 0;
+    border-left: 2px solid transparent;
+    padding-left: 12px;
+    margin-left: -13px;
+  }
+  nav.toc a:hover, nav.toc a:focus-visible {
+    color: var(--ink);
+    border-left-color: var(--accent);
+  }
+  nav.toc a::before {
+    content: counter(toc, decimal-leading-zero);
+    font-variant-numeric: tabular-nums;
+    color: var(--faint);
+    flex-shrink: 0;
+  }
+
+  main {
+    min-width: 0;
+    max-width: 700px;
+  }
+  section {
+    padding-top: 44px;
+    border-top: 1px solid var(--rule);
+    scroll-margin-top: 24px;
+  }
+  section:first-of-type { border-top: none; padding-top: 8px; }
+  section + section { margin-top: 4px; }
+
+  h2 {
+    font-size: 23px;
+    margin: 0 0 16px;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+  h2 .num {
+    font-family: "Public Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+  p { margin: 0 0 14px; color: var(--ink); max-width: 62ch; }
+  p.lede { font-size: 17px; color: var(--muted); max-width: 60ch; }
+  ul { margin: 0 0 14px; padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  li.item {
+    display: grid;
+    grid-template-columns: 140px minmax(0,1fr);
+    gap: 16px;
+    padding: 14px 0;
+    border-top: 1px solid var(--border);
+    align-items: baseline;
+  }
+  li.item:first-child { border-top: none; }
+  @media (max-width: 560px) {
+    li.item { grid-template-columns: 1fr; gap: 4px; }
+  }
+  .item-label {
+    font-weight: 600;
+    font-size: 14.5px;
+  }
+  .item-desc { color: var(--muted); font-size: 15px; }
+  .item-desc b { color: var(--ink); font-weight: 600; }
+
+  .pill-row { display: flex; gap: 8px; flex-wrap: wrap; margin: 0 0 20px; }
+  .pill {
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
+
+  a.inline { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a.inline:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  footer {
+    grid-column: 1 / -1;
+    max-width: 700px;
+    margin: 64px auto 0;
+    padding-top: 28px;
+    border-top: 1px solid var(--rule);
+    color: var(--faint);
+    font-size: 13.5px;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <header class="masthead">
+    <p class="eyebrow">BuddyVerse &middot; The Buddy Maker</p>
+    <h1 class="title">Privacy Policy</h1>
+    <div class="meta"><span>Last updated <strong>September 3, 2026</strong></span><span>Applies to BuddyVerse on Android &amp; iOS</span></div>
+    <hr class="masthead-rule">
+  </header>
+
+  <nav class="toc" aria-label="Sections">
+    <p class="toc-label">On this page</p>
+    <ol>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#collect">What we collect</a></li>
+      <li><a href="#use">How we use it</a></li>
+      <li><a href="#share">Sharing &amp; third parties</a></li>
+      <li><a href="#security">Security</a></li>
+      <li><a href="#retention">Retention &amp; deletion</a></li>
+      <li><a href="#children">Children's privacy</a></li>
+      <li><a href="#changes">Changes to this policy</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ol>
+  </nav>
+
+  <main>
+
+    <section id="overview">
+      <h2><span class="num">01</span> Overview</h2>
+      <p class="lede">BuddyVerse is a party-game app &mdash; jokes, riddles, trivia, and about 25 mini-games meant to be played with the person next to you. This policy explains, plainly, what the app collects, why, and how you can ask us to delete it.</p>
+      <p>Most of BuddyVerse works with nothing collected at all: no account, no sign-up, no login screen in your way. The two things below only happen if you choose to use them.</p>
+    </section>
+
+    <section id="collect">
+      <h2><span class="num">02</span> What we collect</h2>
+      <div class="pill-row"><span class="pill">Nothing required to play</span><span class="pill">No ads</span><span class="pill">No trackers</span></div>
+      <ul>
+        <li class="item">
+          <span class="item-label">Email address</span>
+          <span class="item-desc"><b>Optional.</b> Only collected if you choose to create an account from the app's Log In screen, used to manage that account. Skipping it doesn't limit any gameplay.</span>
+        </li>
+        <li class="item">
+          <span class="item-label">Feedback &amp; reports</span>
+          <span class="item-desc"><b>Optional.</b> If you tap Feedback or Report on a game screen, the message you type &mdash; and which game it's about &mdash; is sent to us so we can read and act on it.</span>
+        </li>
+        <li class="item">
+          <span class="item-label">Multiplayer session data</span>
+          <span class="item-desc"><b>Not personal.</b> Two-player online games relay room codes and moves between devices while a match is active. This is anonymous game state, not tied to your identity.</span>
+        </li>
+      </ul>
+    </section>
+
+    <section id="use">
+      <h2><span class="num">03</span> How we use it</h2>
+      <p>Email address is used only to manage the account you created with it. Feedback and report text is read by the app's developer to fix bugs, improve games, and respond to concerns. Multiplayer session data exists only to sync a live match between two devices and isn't used for anything beyond that.</p>
+      <p>We don't use anything you send us to build advertising profiles, and we don't sell data &mdash; there's nothing here structured for that, and it stays that way.</p>
+    </section>
+
+    <section id="share">
+      <h2><span class="num">04</span> Sharing &amp; third parties</h2>
+      <p>BuddyVerse stores data on Google's Firebase platform (Authentication and Firestore), which acts strictly as our infrastructure &mdash; it processes data on our behalf, under our instruction, to run the app's backend. It is not handed to Firebase, or anyone else, for their own separate use.</p>
+      <p>We don't share, sell, or rent your information to any other third party. There are no ad networks or analytics SDKs in BuddyVerse collecting data on their own behalf.</p>
+    </section>
+
+    <section id="security">
+      <h2><span class="num">05</span> Security</h2>
+      <p>Everything sent to or from BuddyVerse travels encrypted, over standard HTTPS/TLS connections via Firebase. Feedback and report content is readable only by the app's admin account.</p>
+    </section>
+
+    <section id="retention">
+      <h2><span class="num">06</span> Retention &amp; deletion</h2>
+      <p>We keep account, feedback, and report data only as long as it's useful for the purposes above. You can ask us to delete anything tied to you at any time &mdash; reach out using the contact details below and we'll take care of it.</p>
+    </section>
+
+    <section id="children">
+      <h2><span class="num">07</span> Children's privacy</h2>
+      <p>BuddyVerse includes a "Kid" content mode built for younger players, and it collects nothing beyond what's described above for anyone, of any age &mdash; no ads, no behavioral tracking, no data sold. A parent or guardian who wants any information deleted can use the contact details below.</p>
+    </section>
+
+    <section id="changes">
+      <h2><span class="num">08</span> Changes to this policy</h2>
+      <p>If this policy changes, we'll update the date at the top of this page. Continuing to use BuddyVerse after a change means you accept the current version.</p>
+    </section>
+
+    <section id="contact">
+      <h2><span class="num">09</span> Contact</h2>
+      <p>Questions, concerns, or a deletion request &mdash; reach the BuddyVerse team at <a class="inline" href="tel:+17322581971">+1&nbsp;(732)&nbsp;258-1971</a>, the same number listed in the app's Contact Us screen.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <span>BuddyVerse &mdash; made to help people make friends. 💛</span>
+    <span>Privacy Policy &middot; v1.0</span>
+  </footer>
+
+</div>
+</body>
+</html>
