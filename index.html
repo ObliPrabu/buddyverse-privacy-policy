@@ -6,7 +6,7 @@
 <title>BuddyVerse Privacy Policy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700;800&display=swap">
 <style>
   :root {
     --ground: #faf9f6;
@@ -71,14 +71,27 @@
     margin: 0 auto 8px;
     width: 100%;
   }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 10px;
+  }
+  .brand-logo {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    display: block;
+    flex-shrink: 0;
+  }
   .eyebrow {
     font-family: "Public Sans", sans-serif;
-    font-size: 12.5px;
-    font-weight: 700;
-    letter-spacing: 0.09em;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--accent);
-    margin: 0 0 10px;
+    margin: 0;
   }
   h1.title {
     font-size: clamp(32px, 5vw, 44px);
@@ -229,7 +242,10 @@
 <div class="page">
 
   <header class="masthead">
-    <p class="eyebrow">BuddyVerse &middot; The Buddy Maker</p>
+    <div class="brand">
+      <img src="logo.png" alt="BuddyVerse logo" class="brand-logo">
+      <p class="eyebrow">BuddyVerse &middot; The Buddy Maker</p>
+    </div>
     <h1 class="title">Privacy Policy</h1>
     <div class="meta"><span>Last updated <strong>September 5, 2026</strong></span><span>Applies to BuddyVerse on Android &amp; iOS</span></div>
     <hr class="masthead-rule">
