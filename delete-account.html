@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BuddyVerse Data Deletion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700;800&display=swap">
+<style>
+  :root {
+    --ground: #faf9f6;
+    --surface: #ffffff;
+    --ink: #1c1e2a;
+    --muted: #6b6f82;
+    --faint: #9295a6;
+    --accent: #5b52e0;
+    --accent-ink: #ffffff;
+    --border: #e5e3dc;
+    --rule: #d8d5cb;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #14161f;
+      --surface: #1a1c28;
+      --ink: #edeef5;
+      --muted: #9a9db0;
+      --faint: #6b6f82;
+      --accent: #8b84ff;
+      --accent-ink: #14161f;
+      --border: #2a2d3d;
+      --rule: #33364a;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { background: var(--ground); }
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    margin: 0;
+    font-family: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2 {
+    font-family: "Fraunces", Georgia, "Times New Roman", serif;
+    font-weight: 500;
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+
+  .page {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 56px 24px 96px;
+    display: grid;
+    grid-template-columns: 220px minmax(0, 700px);
+    gap: 64px;
+    justify-content: center;
+  }
+  @media (max-width: 880px) {
+    .page { grid-template-columns: 1fr; gap: 32px; padding-top: 40px; }
+    nav.toc { display: none; }
+  }
+
+  header.masthead {
+    grid-column: 1 / -1;
+    max-width: 700px;
+    margin: 0 auto 8px;
+    width: 100%;
+  }
+  .eyebrow {
+    font-family: "Public Sans", sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 10px;
+  }
+  .title-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .title-logo {
+    width: clamp(48px, 7vw, 64px);
+    height: clamp(48px, 7vw, 64px);
+    border-radius: 14px;
+    display: block;
+    flex-shrink: 0;
+  }
+  h1.title {
+    font-size: clamp(32px, 5vw, 44px);
+    margin: 0 0 14px;
+    line-height: 1.08;
+  }
+  .meta {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    color: var(--muted);
+    font-size: 14px;
+    font-variant-numeric: tabular-nums;
+    margin: 0 0 28px;
+  }
+  .meta strong { color: var(--ink); font-weight: 600; }
+  hr.masthead-rule {
+    border: none;
+    height: 2px;
+    background: var(--accent);
+    width: 56px;
+    margin: 0;
+  }
+
+  nav.toc {
+    position: sticky;
+    top: 56px;
+    align-self: start;
+    font-size: 13.5px;
+  }
+  nav.toc .toc-label {
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    font-size: 11.5px;
+    color: var(--faint);
+    margin: 0 0 14px;
+  }
+  nav.toc ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: toc;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  nav.toc li { counter-increment: toc; }
+  nav.toc a {
+    display: flex;
+    gap: 10px;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 7px 0;
+    border-left: 2px solid transparent;
+    padding-left: 12px;
+    margin-left: -13px;
+  }
+  nav.toc a:hover, nav.toc a:focus-visible {
+    color: var(--ink);
+    border-left-color: var(--accent);
+  }
+  nav.toc a::before {
+    content: counter(toc, decimal-leading-zero);
+    font-variant-numeric: tabular-nums;
+    color: var(--faint);
+    flex-shrink: 0;
+  }
+
+  main {
+    min-width: 0;
+    max-width: 700px;
+  }
+  section {
+    padding-top: 44px;
+    border-top: 1px solid var(--rule);
+    scroll-margin-top: 24px;
+  }
+  section:first-of-type { border-top: none; padding-top: 8px; }
+  section + section { margin-top: 4px; }
+
+  h2 {
+    font-size: 23px;
+    margin: 0 0 16px;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+  h2 .num {
+    font-family: "Public Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+  p { margin: 0 0 14px; color: var(--ink); max-width: 62ch; }
+  p.lede { font-size: 17px; color: var(--muted); max-width: 60ch; }
+  ul { margin: 0 0 14px; padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  li.item {
+    display: grid;
+    grid-template-columns: 140px minmax(0,1fr);
+    gap: 16px;
+    padding: 14px 0;
+    border-top: 1px solid var(--border);
+    align-items: baseline;
+  }
+  li.item:first-child { border-top: none; }
+  @media (max-width: 560px) {
+    li.item { grid-template-columns: 1fr; gap: 4px; }
+  }
+  .item-label {
+    font-weight: 600;
+    font-size: 14.5px;
+  }
+  .item-desc { color: var(--muted); font-size: 15px; }
+  .item-desc b { color: var(--ink); font-weight: 600; }
+
+  ol.steps {
+    margin: 0 0 20px;
+    padding: 0;
+    list-style: none;
+    counter-reset: steps;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  ol.steps li {
+    counter-increment: steps;
+    display: grid;
+    grid-template-columns: 32px minmax(0,1fr);
+    gap: 14px;
+    padding: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+  ol.steps li::before {
+    content: counter(steps);
+    font-family: "Public Sans", sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    color: var(--accent-ink);
+    background: var(--accent);
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  ol.steps .step-body p { margin: 0; }
+  ol.steps .step-title { font-weight: 600; margin: 0 0 4px; }
+
+  .pill-row { display: flex; gap: 8px; flex-wrap: wrap; margin: 0 0 20px; }
+  .pill {
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
+
+  a.inline { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a.inline:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .mail-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0 0 14px;
+  }
+  .mail-box a.inline { font-size: 18px; font-weight: 700; }
+
+  footer {
+    grid-column: 1 / -1;
+    max-width: 700px;
+    margin: 64px auto 0;
+    padding-top: 28px;
+    border-top: 1px solid var(--rule);
+    color: var(--faint);
+    font-size: 13.5px;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <header class="masthead">
+    <p class="eyebrow">BuddyVerse &middot; The Buddy Maker</p>
+    <div class="title-row">
+      <img src="logo.png" alt="BuddyVerse logo" class="title-logo">
+      <h1 class="title">Delete Your Data</h1>
+    </div>
+    <div class="meta"><span>Last updated <strong>September 8, 2026</strong></span><span>Applies to BuddyVerse on Android &amp; iOS</span></div>
+    <hr class="masthead-rule">
+  </header>
+
+  <nav class="toc" aria-label="Sections">
+    <p class="toc-label">On this page</p>
+    <ol>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#what">What can be deleted</a></li>
+      <li><a href="#steps">How to request deletion</a></li>
+      <li><a href="#after">What happens next</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ol>
+  </nav>
+
+  <main>
+
+    <section id="overview">
+      <h2><span class="num">01</span> Overview</h2>
+      <p class="lede">BuddyVerse, developed by Mithran ObliPrabu, doesn't have a traditional sign-up or account system for players &mdash; but if you've entered a first name in the app, opted into update notices, created a real Log In account, or sent us feedback, that data lives in our database and you can ask us to delete it at any time.</p>
+      <p>There's no in-app "delete my account" button today, since there's no traditional account to delete &mdash; instead, you request deletion directly from us using the steps below, and we take care of it by hand.</p>
+    </section>
+
+    <section id="what">
+      <h2><span class="num">02</span> What can be deleted</h2>
+      <div class="pill-row"><span class="pill">First name</span><span class="pill">Login email</span><span class="pill">Feedback &amp; reports</span></div>
+      <ul>
+        <li class="item">
+          <span class="item-label">First name</span>
+          <span class="item-desc">Whatever you entered on first launch, and/or separately through the "Get Updates" opt-in.</span>
+        </li>
+        <li class="item">
+          <span class="item-label">Login email</span>
+          <span class="item-desc">Only exists if you created a real account from the app's Log In screen.</span>
+        </li>
+        <li class="item">
+          <span class="item-label">Feedback &amp; reports</span>
+          <span class="item-desc">Any message you submitted through a game screen's Feedback or Report button.</span>
+        </li>
+      </ul>
+    </section>
+
+    <section id="steps">
+      <h2><span class="num">03</span> How to request deletion</h2>
+      <ol class="steps">
+        <li>
+          <div class="step-body">
+            <p class="step-title">Email us</p>
+            <p>Send a message to <a class="inline" href="mailto:buddyversemithran@gmail.com">buddyversemithran@gmail.com</a> asking to delete your BuddyVerse data.</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-body">
+            <p class="step-title">Tell us how to find your data</p>
+            <p>Include the first name you used in the app, and roughly when you played. If you created a real Log In account, include that email address too &mdash; this is how we find the right records, since the app doesn't use any other account identifier.</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-body">
+            <p class="step-title">We confirm once it's done</p>
+            <p>We'll reply once your data has been deleted from our database, usually within a few days.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section id="after">
+      <h2><span class="num">04</span> What happens next</h2>
+      <p>Once we process your request, your first name, login email (if any), and any feedback/report messages tied to you are permanently removed from our Firestore database. Anonymous data that was never tied to your identity in the first place &mdash; like live multiplayer session state, which only exists for the duration of an active match &mdash; isn't retained at all and has nothing to delete.</p>
+    </section>
+
+    <section id="contact">
+      <h2><span class="num">05</span> Contact</h2>
+      <div class="mail-box">
+        <a class="inline" href="mailto:buddyversemithran@gmail.com">buddyversemithran@gmail.com</a>
+      </div>
+      <p>Same address as the app's own Contact Us screen and the <a class="inline" href="index.html">Privacy Policy</a>.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <span>BuddyVerse &mdash; made to help people make friends. 💛</span>
+    <span>Data Deletion &middot; v1.0</span>
+  </footer>
+
+</div>
+</body>
+</html>
