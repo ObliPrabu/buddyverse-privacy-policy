@@ -246,7 +246,7 @@
       <img src="logo.png" alt="BuddyVerse logo" class="title-logo">
       <h1 class="title">Privacy Policy</h1>
     </div>
-    <div class="meta"><span>Last updated <strong>September 5, 2026</strong></span><span>Applies to BuddyVerse on Android &amp; iOS</span></div>
+    <div class="meta"><span>Last updated <strong>October 17, 2026</strong></span><span>Applies to BuddyVerse on Android &amp; iOS</span></div>
     <hr class="masthead-rule">
   </header>
 
@@ -269,47 +269,52 @@
 
     <section id="overview">
       <h2><span class="num">01</span> Overview</h2>
-      <p class="lede">BuddyVerse is a party-game app &mdash; jokes, riddles, trivia, and about 25 mini-games meant to be played with the person next to you. This policy explains, plainly, what the app collects, why, and how you can ask us to delete it.</p>
-      <p>The only thing BuddyVerse ever asks for is a first name &mdash; once, the first time you open the app. No email, no password, no account, no login screen otherwise gets in your way.</p>
+      <p class="lede">BuddyVerse is a party-game app &mdash; jokes, riddles, trivia, and about 25 mini-games to play with the person next to you or with a friend online. This policy explains, plainly, what the app collects, why, and how you can ask us to delete it.</p>
+      <p>The only thing BuddyVerse asks every player for is a first name &mdash; once, the first time you open the app. Players do not need an account. A separate Log In screen exists only for the app's developer, using an email address and password; no one else needs it. BuddyVerse has no ads and no payments.</p>
     </section>
 
     <section id="collect">
       <h2><span class="num">02</span> What we collect</h2>
-      <div class="pill-row"><span class="pill">First name only</span><span class="pill">No ads</span><span class="pill">No trackers</span></div>
+      <div class="pill-row"><span class="pill">First name only</span><span class="pill">No ads</span><span class="pill">No payments</span><span class="pill">No trackers</span></div>
       <ul>
         <li class="item">
           <span class="item-label">First name (on first launch)</span>
-          <span class="item-desc"><b>Required, once.</b> The first time you open BuddyVerse, it asks for a first name before you can play &mdash; no email, no last name, no password. It's asked once per device and stored so the app doesn't ask again.</span>
+          <span class="item-desc"><b>Required, once.</b> The app asks for a first name before you can play &mdash; no last name, no email, no password. It's stored so the app doesn't ask again.</span>
         </li>
         <li class="item">
           <span class="item-label">First name (for update notices)</span>
-          <span class="item-desc"><b>Optional.</b> Separately, if you tap "Get Updates" and choose to sign up, we store the first name you enter there so we can show you in-app notices when a new version or feature comes out. Skipping this doesn't limit any gameplay.</span>
+          <span class="item-desc"><b>Optional.</b> If you tap "Get Updates" and sign up, we store the first name you enter there so we can show you in-app notices about new versions and features. Skipping this doesn't limit any gameplay.</span>
         </li>
         <li class="item">
           <span class="item-label">Email address</span>
-          <span class="item-desc"><b>Optional.</b> Only collected if you choose to create an account from the app's Log In screen, used to manage that account. Skipping it doesn't limit any gameplay.</span>
+          <span class="item-desc"><b>Optional.</b> Used only for the developer's admin login. It is stored by Firebase Authentication for as long as that account exists, and you can ask us to delete it.</span>
         </li>
         <li class="item">
           <span class="item-label">Feedback &amp; reports</span>
           <span class="item-desc"><b>Optional.</b> If you tap Feedback or Report on a game screen, the message you type &mdash; and which game it's about &mdash; is sent to us so we can read and act on it.</span>
         </li>
         <li class="item">
-          <span class="item-label">Multiplayer session data</span>
-          <span class="item-desc"><b>Not personal.</b> Two-player online games relay room codes and moves between devices while a match is active. This is anonymous game state, not tied to your identity.</span>
+          <span class="item-label">Online multiplayer data</span>
+          <span class="item-desc">When you play online with a room code, the app signs your device in anonymously with Firebase, which gives your install a random ID. Room codes, moves, and the first names of the players in the room are relayed between devices while a match is active. This is not linked to your real identity.</span>
+        </li>
+        <li class="item">
+          <span class="item-label">Play counts</span>
+          <span class="item-desc">The app counts how many times each game is played. These counts are not linked to you.</span>
         </li>
       </ul>
+      <p>We do not collect your location, contacts, photos, microphone, or payment information.</p>
     </section>
 
     <section id="use">
       <h2><span class="num">03</span> How we use it</h2>
-      <p>The first name you enter on first launch is used only within the app itself &mdash; it's never emailed, texted, or used to contact you outside the app. Email address is used only to manage the account you created with it. Feedback and report text is read by the app's developer to fix bugs, improve games, and respond to concerns. A first name entered through "Get Updates" is used only to personalize in-app update notices &mdash; same rule, never emailed or used to contact you outside the app. Multiplayer session data exists only to sync a live match between two devices and isn't used for anything beyond that.</p>
-      <p>We don't use anything you send us to build advertising profiles, and we don't sell data &mdash; there's nothing here structured for that, and it stays that way.</p>
+      <p>Your first name is used only inside the app &mdash; it's never emailed, texted, or used to contact you outside the app. The email address is used only for the developer's admin login. Feedback and report text is read by the developer to fix bugs and improve games. A first name entered through "Get Updates" is used only to personalize in-app notices. Multiplayer data exists only to run a live match.</p>
+      <p>We don't use anything you send us to build advertising profiles, and we don't sell data.</p>
     </section>
 
     <section id="share">
       <h2><span class="num">04</span> Sharing &amp; third parties</h2>
-      <p>BuddyVerse stores data on Google's Firebase platform (Authentication and Firestore), which acts strictly as our infrastructure &mdash; it processes data on our behalf, under our instruction, to run the app's backend. It is not handed to Firebase, or anyone else, for their own separate use.</p>
-      <p>We don't share, sell, or rent your information to any other third party. There are no ad networks or analytics SDKs in BuddyVerse collecting data on their own behalf.</p>
+      <p>BuddyVerse stores data on Google's Firebase platform (Authentication and Firestore). Firebase acts strictly as our infrastructure provider &mdash; it processes data on our behalf to run the app, not for its own use.</p>
+      <p>We don't share, sell, or rent your information to any other third party. There are no ad networks or analytics SDKs in BuddyVerse.</p>
     </section>
 
     <section id="security">
@@ -319,12 +324,12 @@
 
     <section id="retention">
       <h2><span class="num">06</span> Retention &amp; deletion</h2>
-      <p>We keep account, feedback, and report data only as long as it's useful for the purposes above. You can ask us to delete anything tied to you at any time &mdash; reach out using the contact details below and we'll take care of it.</p>
+      <p>We keep data only as long as it is useful for the purposes above. You can ask us to delete anything tied to you at any time &mdash; use the contact details below or the <a class="inline" href="delete-account.html">delete-account page</a> and we'll take care of it. Deletion covers your first name and any email address.</p>
     </section>
 
     <section id="children">
       <h2><span class="num">07</span> Children's privacy</h2>
-      <p>BuddyVerse includes a "Kid" content mode built for younger players, and it collects nothing beyond what's described above for anyone, of any age &mdash; no ads, no behavioral tracking, no data sold. The "Get Updates" opt-in deliberately asks only for a first name, never an email address, so it stays safe for younger players too. A parent or guardian who wants any information deleted can use the contact details below.</p>
+      <p>BuddyVerse is meant for people aged 13 and older. The app has a "Kid" content mode, but it only changes the tone of the jokes and riddles; it is not meant for children under 13, and we do not knowingly collect information from children under 13. If you are a parent or guardian and believe a child under 13 has given us information, contact us and we will delete it.</p>
     </section>
 
     <section id="changes">
@@ -341,7 +346,7 @@
 
   <footer>
     <span>BuddyVerse &mdash; made to help people make friends. 💛</span>
-    <span>Privacy Policy &middot; v1.0</span>
+    <span>Privacy Policy &middot; v2.0</span>
   </footer>
 
 </div>
